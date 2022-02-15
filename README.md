@@ -1,5 +1,5 @@
 # MIP control
-###### MIP, short for mobile inverted pendulum, is a mobile device with a robot platform and two wheels.
+### MIP, short for mobile inverted pendulum, is a mobile device with a robot platform and two wheels.
 ![MIP figure](https://github.com/ArthurShih/MIP_control/blob/master/MIP-figure/MIP_figure.png)
 ![MIP Simplfied figure](https://github.com/ArthurShih/MIP_control/blob/master/MIP-figure/Simplified_MIP_figure.png)
 
