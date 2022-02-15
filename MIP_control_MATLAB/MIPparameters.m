@@ -56,7 +56,7 @@ Lmine=place(AD',CD',p)';
 % Define System A matrix
 Amine= AD-BD*Kmine-Lmine*CD;
 Dmine=[0 0];
-thetaic=0.65;
+thetaic=0.4;
 %plot(out.theta.Time,out.theta.Data);
 %legend('theta');
 %shg
