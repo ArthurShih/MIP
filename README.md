@@ -16,4 +16,4 @@
 ###### Performance of voltage when initial theta = 68 degrees
 ![Voltage performance](https://github.com/ArthurShih/MIP_control/blob/master/MIP-figure/Voltage.png)
 ###### Performance of theta
-1[theta performance](https://github.com/ArthurShih/MIP_control/blob/master/MIP-figure/angle.png)
+![theta performance](https://github.com/ArthurShih/MIP_control/blob/master/MIP-figure/angle.png)
