@@ -17,3 +17,5 @@
 ![Voltage performance](https://github.com/ArthurShih/MIP_control/blob/master/MIP-figure/Voltage.png)
 ###### Performance of theta
 ![theta performance](https://github.com/ArthurShih/MIP_control/blob/master/MIP-figure/angle.png)
+##### Properties of K and F
+![K and F](https://github.com/ArthurShih/MIP_control/blob/master/MIP-figure/K_F_value.png)
