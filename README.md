@@ -4,4 +4,5 @@
 ###### In MAE 280A final report, K and F defined by trial and error
 ###### In MIP.py, MIP is controled by LQG controller. 
 ###### By using LQG controller, MIP allows larger inital tilt angle
-![MIP figure](https://github.com/ArthurShih/MIP_control/blob/master/Simplified_MIP_figure.png)
+![MIP figure](https://github.com/ArthurShih/MIP_control/blob/master/MIP_figure.png)
+![MIP Simplfied figure](https://github.com/ArthurShih/MIP_control/blob/master/Simplified_MIP_figure.png)
