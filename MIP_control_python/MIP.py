@@ -76,7 +76,8 @@ t_start = 0
 t_end = 10
 t_step = 0.001 
 t = np.arange(t_start, t_end, t_step)
-theta0 = 65*np.pi/180
+thetaic = 68
+theta0 = thetaic*np.pi/180
 x0 = [0,0,theta0]
 xhat0 = [0,0,0]
 f0 = np.array(x0+xhat0)
@@ -96,14 +97,19 @@ xhat = f[:,3:6]
 thetadata = x[:,2]*180/np.pi 
 plt.figure(1)
 plt.plot(t,thetadata)
+plt.title("Initial angle = " + str(thetaic))
+plt.legend(["theta(degree)"])
 plt.grid()
 plt.figure(2)
 V = np.transpose(K.dot(np.transpose(xhat)))
 if (max(V)> -min(V)):
-	V_max = max(V)
+	V_loc_max = max(V)
 else:
-	V_max = -min(V)
+	V_loc_max = -min(V)
 plt.plot(t,V)
-plt.title(("Vmax ="+str(V_max)))
+(N,) = np.shape(t)
+plt.plot(t,Vmax*np.ones(N),"r-")
+plt.title(("Vmax to control ="+str(V_loc_max)))
+plt.legend(["Motor Voltage","Maximum Motor Voltage"])
 plt.grid()
 plt.show()
