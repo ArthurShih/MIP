@@ -43,6 +43,10 @@ Cy = np.array([[1,0,0],
 Dyw = np.array([[0,1,0],
 				[0,0,1]])
 
+
+
+
+
 # Setting parameter
 W1 = 4 # invariance of w1
 W2 = 0.01 # invariance of w2
@@ -62,7 +66,12 @@ print("\nEigenvalue of A+Bu*K =\n",eigvalue)
 
 # Find F
 Qf = Bw.dot(W).dot(np.transpose(Bw))
+print("----")
+print(Qf)
+print("----")
 Rf = Dyw.dot(W).dot(np.transpose(Dyw))
+print(Rf)
+print("---")
 Af = np.transpose(A)
 Cf = np.transpose(Cy)
 [F,Y,E] = control.lqr(Af,Cf,Qf,Rf)
@@ -82,34 +91,41 @@ x0 = [0,0,theta0]
 xhat0 = [0,0,0]
 f0 = np.array(x0+xhat0)
 
-# Closed loop system
-def sys(f,t):
-	x = f[0:3]
-	xhat = f[3:6]
-	xdot = A.dot(x) + Bu.dot(K).dot(xhat)
-	xhatdot = -F.dot(Cy).dot(x) + (A+Bu.dot(K)+F.dot(Cy)).dot(xhat)
-	return np.concatenate((xdot,xhatdot))
+print("A =\n",A)
+print("Bu =\n", Bu)
+print("C =\n",Cy)
+eigvalue, eigvector = eig(A+F.dot(Cy)+Bu.dot(K))
+print(eigvalue)
 
-f = odeint(sys, f0, t)
 
-x = f[:,0:3]
-xhat = f[:,3:6]
-thetadata = x[:,2]*180/np.pi 
-plt.figure(1)
-plt.plot(t,thetadata)
-plt.title("Initial angle = " + str(thetaic))
-plt.legend(["theta(degree)"])
-plt.grid()
-plt.figure(2)
-V = np.transpose(K.dot(np.transpose(xhat)))
-if (max(V)> -min(V)):
-	V_loc_max = max(V)
-else:
-	V_loc_max = -min(V)
-plt.plot(t,V)
-(N,) = np.shape(t)
-plt.plot(t,Vmax*np.ones(N),"r-")
-plt.title(("Vmax to control ="+str(V_loc_max)))
-plt.legend(["Motor Voltage","Maximum Motor Voltage"])
-plt.grid()
-plt.show()
+# # Closed loop system
+# def sys(f,t):
+# 	x = f[0:3]
+# 	xhat = f[3:6]
+# 	xdot = A.dot(x) + Bu.dot(K).dot(xhat)
+# 	xhatdot = -F.dot(Cy).dot(x) + (A+Bu.dot(K)+F.dot(Cy)).dot(xhat)
+# 	return np.concatenate((xdot,xhatdot))
+
+# f = odeint(sys, f0, t)
+
+# x = f[:,0:3]
+# xhat = f[:,3:6]
+# thetadata = x[:,2]*180/np.pi 
+# plt.figure(1)
+# plt.plot(t,thetadata)
+# plt.title("Initial angle = " + str(thetaic))
+# plt.legend(["theta(degree)"])
+# plt.grid()
+# plt.figure(2)
+# V = np.transpose(K.dot(np.transpose(xhat)))
+# if (max(V)> -min(V)):
+# 	V_loc_max = max(V)
+# else:
+# 	V_loc_max = -min(V)
+# plt.plot(t,V)
+# (N,) = np.shape(t)
+# plt.plot(t,Vmax*np.ones(N),"r-")
+# plt.title(("Vmax to control ="+str(V_loc_max)))
+# plt.legend(["Motor Voltage","Maximum Motor Voltage"])
+# plt.grid()
+# plt.show()
